@@ -10,9 +10,7 @@ project(turtlebot_controller)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  std_msgs
   turtlesim
-  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -72,7 +70,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -107,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES turtlebot_controller
-#  CATKIN_DEPENDS roscpp rospy std_msgs turtlesim
+#  CATKIN_DEPENDS roscpp rospy turtlesim
 #  DEPENDS system_lib
 )
 
@@ -135,7 +133,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
- add_executable(controller src/controller.cpp)
+add_executable(turtlebot_controller src/turtlebot_controller.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -148,7 +146,7 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(controller
+ target_link_libraries(turtlebot_controller
    ${catkin_LIBRARIES}
  )
 
