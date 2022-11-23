@@ -25,7 +25,7 @@ def turtleCallback(msg):
 def controller():
 	rospy.init_node("controller")
 	rospy.Subscriber("my_turtle/pose", Pose, turtleCallback)
-	rospy.wait_for_service("/kill")
+	rospy.wait_for_service("/kill")//wait for launching turtlesim, wait for kill
 	client1 = rospy.ServiceProxy("/kill", Kill)
 	client1("turtle1")
 	rospy.wait_for_service("/spawn")
